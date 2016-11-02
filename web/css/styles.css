@@ -1,0 +1,49 @@
+body{    
+    padding-top: 0;
+    width: 100%;
+}
+
+.banner-smile {
+    background: black;
+    text-align: center;
+}
+
+.banner-smile .img-banner {
+    margin: 15px;
+}
+
+.banner-smile h1 {
+    font-size: 50px;
+}
+
+.login {
+    margin-top: 40px;
+}
+
+.form-login {
+    margin-bottom: 21px;
+}
+
+.error .img-error {
+    width: 50%;
+}
+
+.breadcrumb {
+    background: black;
+}
+
+.img {
+    height: 10%;
+    text-align: left;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+    padding-top: 50px;
+    position: fixed;
+    background: black;
+    color: white;
+    margin-top: 50px;
+}
+

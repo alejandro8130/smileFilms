@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SmileFilmsPU" transaction-type="JTA">
+    <jta-data-source>java:app/smile</jta-data-source>
+    <class>model.Empleados</class>
+    <class>model.Sanciones</class>
+    <class>model.Carnets</class>
+    <class>model.Sugerencias</class>
+    <class>model.Clientes</class>
+    <class>model.Reservas</class>
+    <class>model.Liquidaciones</class>
+    <class>model.Generos</class>
+    <class>model.Devoluciones</class>
+    <class>model.Peliculas</class>
+    <class>model.Prestamos</class>
+    <class>model.Reportes</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>
