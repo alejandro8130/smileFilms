@@ -30,8 +30,8 @@ public class conectadb {
     }
 
     public conectadb() {
-        this.usuario = "root";
-        this.clave = "adsi";
+        this.usuario = "alejo";
+        this.clave = "";
         this.BaseDa = "SmileDB";
         this.url = "jdbc:mysql://localhost:3306/SmileDB";
         this.driverClassName = "com.mysql.jdbc.Driver";

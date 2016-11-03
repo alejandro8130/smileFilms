@@ -131,11 +131,14 @@ ALTER TABLE Reportes ADD FOREIGN KEY (Cliente_id) REFERENCES Clientes (id);
 ALTER TABLE Sugerencias ADD FOREIGN KEY (Cliente_id) REFERENCES Clientes (id);
 
 
+Insert into Roles (nombre) values ('Gerente');
+Insert into Roles (nombre) values ('Empleado');
+Insert into Roles (nombre) values ('Cliente');
+
+Insert into Users (email,Rol_id,contrasena) values ('alejo@gmail.com',1,'123456');
 
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Alejandro','González','1990-08-13','33333330','a@gmail.com',1,'2222222222','Itagui','cr 80 # 80 - 80');
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Raul','Betancur','1987-09-17','4444444','r@gmail.com',1,'111111111','Medellin','cr 80 # 80 - 80');
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Marlon','Urriago','1992-07-02','5555555','m@gmail.com',1,'7777777777','Itagui','cr 81 # 81 - 81');
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Wilder','Alvarez','1996-01-30','6666666','w@gmail.com',1,'8888888888','Itagui','cr 81 # 81 - 81');
-
-
 

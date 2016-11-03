@@ -22,16 +22,16 @@
                             rol = (String) rs.getAttribute("rol");
                         }
 
-                        if (rol.equals("Gerente")) { %>                      
+                        if (rol.equals("1")) { %>                      
                 <li><a href="registrar_empleado.jsp">Empleados</a></li> 
                 <li><a href="registrar_cliente.jsp">R Clientes</a></li>
                 <li><a href="listar?pag=0">Clientes</a></li>
                 <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
                 <li><a href="resgistrar_prestamo.jsp">Prestamos</a></li>                         
-                    <% } else if (rol.equals("Empleado")) { %>
+                    <% } else if (rol.equals("2")) { %>
                 <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
                 <li><a href="resgistrar_prestamo">Prestamos</a></li> 
-                    <% } else if (rol.equals("Cliente")) { %>
+                    <% } else if (rol.equals("3")) { %>
                 <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
                     <% }%>        
             </ul>
