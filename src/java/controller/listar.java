@@ -55,7 +55,6 @@ public class listar extends HttpServlet {
                 String apellido = rs.getString(3);
                 String tel = rs.getString(5);
                 String email = rs.getString(6);
-                int carnet = Integer.parseInt(rs.getString(7));
                 String documento = rs.getString(8);
                 String ciudad = rs.getString(9);
                 String direccion = rs.getString(10);

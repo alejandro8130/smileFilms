@@ -39,13 +39,12 @@ public class cliente extends HttpServlet {
         try {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
-            PreparedStatement query = cnn.prepareStatement("Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Carnet_id,documento,ciudad,direccion) values (?,?,?,?,?,?,?,?,?);");
+            PreparedStatement query = cnn.prepareStatement("Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values (?,?,?,?,?,3,?,?,?);");
             query.setString(1, request.getParameter("nombre"));
             query.setString(2, request.getParameter("apellido"));
             query.setString(3, request.getParameter("fecha"));
             query.setString(4, request.getParameter("tel"));
             query.setString(5, request.getParameter("email"));
-            query.setInt(6, Integer.parseInt(request.getParameter("carnet")));
             query.setString(7, request.getParameter("documento"));
             query.setString(8, request.getParameter("ciudad"));
             query.setString(9, request.getParameter("direccion"));

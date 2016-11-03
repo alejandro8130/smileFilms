@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,14 +24,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author alejo
  */
 @Entity
-@Table(name = "Liquidaciones")
+@Table(name = "Users")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Liquidaciones.findAll", query = "SELECT l FROM Liquidaciones l")
-    , @NamedQuery(name = "Liquidaciones.findById", query = "SELECT l FROM Liquidaciones l WHERE l.id = :id")
-    , @NamedQuery(name = "Liquidaciones.findByEmpleadoid", query = "SELECT l FROM Liquidaciones l WHERE l.empleadoid = :empleadoid")
-    , @NamedQuery(name = "Liquidaciones.findByDiasLaborados", query = "SELECT l FROM Liquidaciones l WHERE l.diasLaborados = :diasLaborados")})
-public class Liquidaciones implements Serializable {
+    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
+    , @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id")
+    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
+    , @NamedQuery(name = "Users.findByContrasena", query = "SELECT u FROM Users u WHERE u.contrasena = :contrasena")})
+public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -38,23 +40,26 @@ public class Liquidaciones implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "Empleado_id")
-    private int empleadoid;
+    @Column(name = "email")
+    private String email;
     @Basic(optional = false)
-    @Column(name = "dias_laborados")
-    private int diasLaborados;
+    @Column(name = "contrasena")
+    private String contrasena;
+    @JoinColumn(name = "Rol_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Roles rolid;
 
-    public Liquidaciones() {
+    public Users() {
     }
 
-    public Liquidaciones(Integer id) {
+    public Users(Integer id) {
         this.id = id;
     }
 
-    public Liquidaciones(Integer id, int empleadoid, int diasLaborados) {
+    public Users(Integer id, String email, String contrasena) {
         this.id = id;
-        this.empleadoid = empleadoid;
-        this.diasLaborados = diasLaborados;
+        this.email = email;
+        this.contrasena = contrasena;
     }
 
     public Integer getId() {
@@ -65,20 +70,28 @@ public class Liquidaciones implements Serializable {
         this.id = id;
     }
 
-    public int getEmpleadoid() {
-        return empleadoid;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmpleadoid(int empleadoid) {
-        this.empleadoid = empleadoid;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getDiasLaborados() {
-        return diasLaborados;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setDiasLaborados(int diasLaborados) {
-        this.diasLaborados = diasLaborados;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public Roles getRolid() {
+        return rolid;
+    }
+
+    public void setRolid(Roles rolid) {
+        this.rolid = rolid;
     }
 
     @Override
@@ -91,10 +104,10 @@ public class Liquidaciones implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Liquidaciones)) {
+        if (!(object instanceof Users)) {
             return false;
         }
-        Liquidaciones other = (Liquidaciones) object;
+        Users other = (Users) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -103,7 +116,7 @@ public class Liquidaciones implements Serializable {
 
     @Override
     public String toString() {
-        return "model.Liquidaciones[ id=" + id + " ]";
+        return "model.Users[ id=" + id + " ]";
     }
     
 }

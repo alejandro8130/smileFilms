@@ -34,14 +34,15 @@ public class login extends HttpServlet {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
-            String query = "Select * from Users Where nombre='" + request.getParameter("Nombre") + "' AND contrasena='" + request.getParameter("Contrasena") + "';";
+            String query = "Select * from Users Where email='" + request.getParameter("Nombre") + "' AND contrasena='" + request.getParameter("Contrasena") + "';";
             System.out.println(query);
             ResultSet rs = stm.executeQuery(query);
             if (rs.next()) {
                 HttpSession session = request.getSession(true);
                 session.setMaxInactiveInterval(300); //600 secs = 10 mins
                 session.setAttribute("user", (rs.getString(2)));
-                session.setAttribute("rol", (rs.getString(4)));
+                session.setAttribute("rol", (rs.getString(3)));
+                System.out.println(rs.getString(3));
                 
                 String userid = (String) session.getAttribute("user");
                 if (userid == null) {

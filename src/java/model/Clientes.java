@@ -85,9 +85,9 @@ public class Clientes implements Serializable {
     private Collection<Sugerencias> sugerenciasCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteid")
     private Collection<Reportes> reportesCollection;
-    @JoinColumn(name = "Carnet_id", referencedColumnName = "id")
+    @JoinColumn(name = "Rol_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Carnets carnetid;
+    private Roles rolid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteid")
     private Collection<Sanciones> sancionesCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clienteid")
@@ -212,12 +212,12 @@ public class Clientes implements Serializable {
         this.reportesCollection = reportesCollection;
     }
 
-    public Carnets getCarnetid() {
-        return carnetid;
+    public Roles getRolid() {
+        return rolid;
     }
 
-    public void setCarnetid(Carnets carnetid) {
-        this.carnetid = carnetid;
+    public void setRolid(Roles rolid) {
+        this.rolid = rolid;
     }
 
     @XmlTransient

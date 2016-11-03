@@ -61,12 +61,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "navbar.jsp", out, true);
       out.write("\n");
-      out.write("            <div class=\"container well\">\n");
-      out.write("                <h1>Bienvenido a Smile Films</h1>   \n");
+      out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"row\">\n");
       out.write("                    <div class=\"col-md-8\">\n");
       out.write("                        <div class=\"row\">\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -77,7 +76,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -88,7 +87,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -99,7 +98,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -110,7 +109,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -121,7 +120,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -132,7 +131,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");
@@ -143,7 +142,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
-      out.write("                            <div class=\"col-sm-6 col-md-3\">\n");
+      out.write("                            <div class=\"col-sm-6 col-md-4\">\n");
       out.write("                                <div class=\"thumbnail\">\n");
       out.write("                                    <img src=\"imagenes/MCS.jpg\" alt=\"imagen\">\n");
       out.write("                                    <div class=\"caption\">\n");

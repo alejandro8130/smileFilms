@@ -20,7 +20,7 @@
                 rol = (String) rs.getAttribute("rol");
             }
         %>  
-        <% if (rol.equals("Gerente") || rol.equals("Empleado") || rol.equals("Cliente")) { %>
+        <% if (rol.equals("1") || rol.equals("2") || rol.equals("3")) { %>
         <ul class="breadcrumb">
             <li class="active"><%= rol %></li>
             <li><a href="cerrar"><span class="glyphicon glyphicon-user"></span> Salir</a></li>

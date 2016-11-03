@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -38,7 +40,6 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Empleados.findByApellido", query = "SELECT e FROM Empleados e WHERE e.apellido = :apellido")
     , @NamedQuery(name = "Empleados.findByTel", query = "SELECT e FROM Empleados e WHERE e.tel = :tel")
     , @NamedQuery(name = "Empleados.findByEmail", query = "SELECT e FROM Empleados e WHERE e.email = :email")
-    , @NamedQuery(name = "Empleados.findByCargo", query = "SELECT e FROM Empleados e WHERE e.cargo = :cargo")
     , @NamedQuery(name = "Empleados.findByDocumento", query = "SELECT e FROM Empleados e WHERE e.documento = :documento")
     , @NamedQuery(name = "Empleados.findByFechaInicio", query = "SELECT e FROM Empleados e WHERE e.fechaInicio = :fechaInicio")})
 public class Empleados implements Serializable {
@@ -62,17 +63,15 @@ public class Empleados implements Serializable {
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
-    @Column(name = "cargo")
-    private String cargo;
-    @Basic(optional = false)
     @Column(name = "documento")
     private String documento;
     @Basic(optional = false)
     @Column(name = "fecha_inicio")
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoid")
-    private Collection<Liquidaciones> liquidacionesCollection;
+    @JoinColumn(name = "Rol_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Roles rolid;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empleadoid")
     private Collection<Prestamos> prestamosCollection;
 
@@ -83,13 +82,12 @@ public class Empleados implements Serializable {
         this.id = id;
     }
 
-    public Empleados(Integer id, String nombre, String apellido, String tel, String email, String cargo, String documento, Date fechaInicio) {
+    public Empleados(Integer id, String nombre, String apellido, String tel, String email, String documento, Date fechaInicio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.tel = tel;
         this.email = email;
-        this.cargo = cargo;
         this.documento = documento;
         this.fechaInicio = fechaInicio;
     }
@@ -134,14 +132,6 @@ public class Empleados implements Serializable {
         this.email = email;
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
     public String getDocumento() {
         return documento;
     }
@@ -158,13 +148,12 @@ public class Empleados implements Serializable {
         this.fechaInicio = fechaInicio;
     }
 
-    @XmlTransient
-    public Collection<Liquidaciones> getLiquidacionesCollection() {
-        return liquidacionesCollection;
+    public Roles getRolid() {
+        return rolid;
     }
 
-    public void setLiquidacionesCollection(Collection<Liquidaciones> liquidacionesCollection) {
-        this.liquidacionesCollection = liquidacionesCollection;
+    public void setRolid(Roles rolid) {
+        this.rolid = rolid;
     }
 
     @XmlTransient
