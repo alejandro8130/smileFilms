@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Smile Fimls</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.css" media="screen">
+<link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.css" media="screen">
 <link rel="stylesheet" href="https://bootswatch.com/assets/css/custom.min.css">
 <link href="bootstrap/css/bootstrapValidator.min.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">

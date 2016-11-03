@@ -16,12 +16,11 @@
         <div class="container-fluid">
             <jsp:include page="banner.jsp" flush="true"/>
             <jsp:include page="navbar.jsp" flush="true"/>
-            <div class="container well">
-                <h1>Bienvenido a Smile Films</h1>   
+            <div class="container">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -32,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -43,7 +42,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -54,7 +53,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -65,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -76,7 +75,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -87,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
@@ -98,7 +97,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-3">
+                            <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
                                     <img src="imagenes/MCS.jpg" alt="imagen">
                                     <div class="caption">
