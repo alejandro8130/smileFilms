@@ -22,88 +22,63 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/cuando-las-luces-se-apagan.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h4>Cuando las luces se apagan (2016)</h4>                                        
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/buscando-a-dory.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h4>Buscando a Dory (2016)</h4>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/the-infiltrator.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h4>El infiltrado (2016)</h4>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/race.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h4>El triunfo del espíritu (2016)</h4>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/del-otro-lado-de-la-puerta.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h3>Del otro lado de la puerta (2016)</h3>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/12-horas-para-sobrevivir-el-ano-de-la-eleccion.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h4>12 horas para sobrevivir: El año de la elección (2016)</h4>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4">
                                 <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
+                                    <img src="imagenes/capitan-america-civil-war.jpg" alt="imagen">
                                     <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/MCS.jpg" alt="imagen">
-                                    <div class="caption">
-                                        <h3>Thumbnail label</h3>
-                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                                            Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                        <h3>Capitán América: Civil War (2016)</h3>
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
@@ -128,32 +103,32 @@
                             </a>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/cuando-las-luces-se-apagan.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/buscando-a-dory.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/the-infiltrator.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/race.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/del-otro-lado-de-la-puerta.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                             <div class="col-md-6">
                                 <a href="#" class="list-group-item">
-                                    <img src="imagenes/MCS.jpg" alt="imagen" class="img-responsive">
+                                    <img src="imagenes/12-horas-para-sobrevivir-el-ano-de-la-eleccion.jpg" alt="imagen" class="img-responsive">
                                 </a>
                             </div>
                         </div>

@@ -14,11 +14,15 @@
         <jsp:include page="banner.jsp" flush="true"/>
         <jsp:include page="navbar.jsp" flush="true"/>
         <div class="container well">
-            <form method="POST" action="login1">                  
+            <form method="POST" action="registrar_pelicula">                  
                 <h1>Registrar Pelicula</h1>
                 <div class="form-group col-md-6">
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Poster</label>
+                    <input type="file" name="poster" class="file">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Genero</label>
@@ -33,12 +37,12 @@
                     <input type="text" name="estado" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Ejemplar</label>
-                    <input type="text" name="ejemplar" class="form-control">
+                    <label>Descripcion</label>
+                    <textarea name="descripcion" class="form-control" rows="3" id="textArea"></textarea>
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Descripcion</label>
-                    <input type="text" name="descripcion" class="form-control">
+                    <label>Ejemplar</label>
+                    <input type="text" name="ejemplar" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-default">Registrar</button>

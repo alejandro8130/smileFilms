@@ -26,7 +26,8 @@
                 <li><a href="registrar_empleado.jsp">Empleados</a></li> 
                 <li><a href="registrar_cliente.jsp">R Clientes</a></li>
                 <li><a href="listar?pag=0">Clientes</a></li>
-                <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
+                <li><a href="resgistrar_pelicula.jsp">R Peliculas</a></li>
+                <li><a href="listar_peliculas?pag=0">Peliculas</a></li>
                 <li><a href="resgistrar_prestamo.jsp">Prestamos</a></li>                         
                     <% } else if (rol.equals("2")) { %>
                 <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
