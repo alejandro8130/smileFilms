@@ -36,6 +36,14 @@ body{
     background: black;
 }
 
+.img-pelicula {
+    height: 300px;
+}
+
+.img-destacados {
+    height: 180px;
+}
+
 .img {
     height: 10%;
     text-align: left;
