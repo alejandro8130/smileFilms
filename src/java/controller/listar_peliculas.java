@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Generos;
 import model.Peliculas;
-import static model.Peliculas_.generoId;
 
 /**
  *

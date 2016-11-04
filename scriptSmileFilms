@@ -52,7 +52,7 @@ CREATE TABLE Prestamos (
 CREATE TABLE Peliculas (
   id INTEGER AUTO_INCREMENT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
-  poster BLOB NOT NULL,
+  poster BLOB NULL DEFAULT NULL,
   genero_id INTEGER NOT NULL,
   duracion INTEGER NOT NULL,
   estado VARCHAR(50) NOT NULL,
@@ -145,4 +145,4 @@ Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,document
 
 Insert into Generos (nombre) values ('Terror');
 
-Insert into Peliculas (nombre,genero_id,duracion,estado,ejemplar,descripcion) values ('Cuando las luces se apagan','1','2','Nuevo','5','Cuando su hermano pequeño');
+Insert into Peliculas (nombre,genero_id,duracion,estado,ejemplar,descripcion) values ('Cuando las luces se apagan','1','160','Nuevo','5','Cuando su hermano pequeño');
