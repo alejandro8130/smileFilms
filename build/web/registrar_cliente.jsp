@@ -56,7 +56,7 @@
                     <label>Foto</label>
                     <input type="file" name="foto" class="file">
                 </div>    
-                <div class="col-md-12" center>
+                <div class="col-md-12 center">
                     <button type="submit" class="btn btn-default">Registrar</button>
                 </div>    
             </form>

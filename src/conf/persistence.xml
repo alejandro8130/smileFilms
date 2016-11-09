@@ -16,6 +16,7 @@
     <class>model.Reportes</class>
     <class>model.Users</class>
     <class>model.Roles</class>
+    <class>model.Barcodes</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>

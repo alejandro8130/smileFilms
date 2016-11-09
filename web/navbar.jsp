@@ -13,6 +13,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.jsp">Home</a></li>
+                <li><a href="listar_barcode?pag=0">Barcode</a></li>
                     <%
                         HttpSession rs = request.getSession();
                         String rol;
