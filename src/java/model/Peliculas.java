@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ficha1020611
+ * @author alejo
  */
 @Entity
 @Table(name = "Peliculas")
@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Peliculas.findAll", query = "SELECT p FROM Peliculas p")
     , @NamedQuery(name = "Peliculas.findById", query = "SELECT p FROM Peliculas p WHERE p.id = :id")
     , @NamedQuery(name = "Peliculas.findByNombre", query = "SELECT p FROM Peliculas p WHERE p.nombre = :nombre")
+    , @NamedQuery(name = "Peliculas.findByPoster", query = "SELECT p FROM Peliculas p WHERE p.poster = :poster")
     , @NamedQuery(name = "Peliculas.findByDuracion", query = "SELECT p FROM Peliculas p WHERE p.duracion = :duracion")
     , @NamedQuery(name = "Peliculas.findByEstado", query = "SELECT p FROM Peliculas p WHERE p.estado = :estado")
     , @NamedQuery(name = "Peliculas.findByEjemplar", query = "SELECT p FROM Peliculas p WHERE p.ejemplar = :ejemplar")
@@ -49,6 +50,9 @@ public class Peliculas implements Serializable {
     @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
+    @Basic(optional = false)
+    @Column(name = "poster")
+    private String poster;
     @Basic(optional = false)
     @Column(name = "duracion")
     private int duracion;
@@ -74,9 +78,10 @@ public class Peliculas implements Serializable {
         this.id = id;
     }
 
-    public Peliculas(Integer id, String nombre, int duracion, String estado, int ejemplar, String descripcion) {
+    public Peliculas(Integer id, String nombre, String poster, int duracion, String estado, int ejemplar, String descripcion) {
         this.id = id;
         this.nombre = nombre;
+        this.poster = poster;
         this.duracion = duracion;
         this.estado = estado;
         this.ejemplar = ejemplar;
@@ -97,6 +102,14 @@ public class Peliculas implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 
     public int getDuracion() {

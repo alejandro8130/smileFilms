@@ -38,7 +38,7 @@ CREATE TABLE Empleados (
   fecha_inicio DATE NOT NULL,
   PRIMARY KEY (id)
 );
-		
+    
 CREATE TABLE Prestamos (
   id INTEGER  AUTO_INCREMENT NOT NULL,
   Cliente_id INTEGER NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Prestamos (
 CREATE TABLE Peliculas (
   id INTEGER AUTO_INCREMENT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
-  poster BLOB NULL DEFAULT NULL,
+  poster VARCHAR(255) NOT NULL,
   genero_id INTEGER NOT NULL,
   duracion INTEGER NOT NULL,
   estado VARCHAR(50) NOT NULL,
@@ -144,5 +144,8 @@ Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,document
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Wilder','Alvarez','1996-01-30','6666666','w@gmail.com',1,'8888888888','Itagui','cr 81 # 81 - 81');
 
 Insert into Generos (nombre) values ('Terror');
+Insert into Generos (nombre) values ('Infantil');
+Insert into Generos (nombre) values ('Drama');
+Insert into Generos (nombre) values ('Accion');
 
-Insert into Peliculas (nombre,genero_id,duracion,estado,ejemplar,descripcion) values ('Cuando las luces se apagan','1','160','Nuevo','5','Cuando su hermano pequeño');
+Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('El triunfo del espÃ­ritu (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/race.jpg','3','120','Nuevo','5','El objetivo de Jesse Owens de llegar a ser el mejor corredor de pista y atleta de campo de la historia lo impulsa hasta el escenario de los Juegos OlÃ­mpicos de 1936, donde se enfrenta a la visión de la supremacía aria de Adolf Hitler.');

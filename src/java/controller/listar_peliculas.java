@@ -53,14 +53,16 @@ public class listar_peliculas extends HttpServlet {
                 Peliculas pelicula = new Peliculas();
                 int id = Integer.parseInt(rs.getString(1));
                 String nombre = rs.getString(2);
-                //Generos generoId = (Generos) rs.getObject(3);
-                int duracion = Integer.parseInt(rs.getString(4));
-                String estado = rs.getString(5);
-                int ejemplar = Integer.parseInt(rs.getString(6));
-                String descripcion = rs.getString(7);
+                String poster = rs.getString(3);
+                //Generos generoId = (Generos) rs.getObject(4);
+                int duracion = Integer.parseInt(rs.getString(5));
+                String estado = rs.getString(6);
+                int ejemplar = Integer.parseInt(rs.getString(7));
+                String descripcion = rs.getString(8);
 
                 pelicula.setId(id);
                 pelicula.setNombre(nombre);
+                pelicula.setPoster(poster);
                 //pelicula.setGeneroId(generoId);
                 pelicula.setDuracion(duracion);
                 pelicula.setEstado(estado);

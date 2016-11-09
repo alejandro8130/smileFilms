@@ -38,13 +38,14 @@ public class registrar_pelicula extends HttpServlet {
         try {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
-            PreparedStatement query = cnn.prepareStatement("Insert into Peliculas (nombre,genero_id,duracion,estado,ejemplar,descripcion) values (?,?,?,?,?,?);");
+            PreparedStatement query = cnn.prepareStatement("Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values (?,?,?,?,?,?,?);");
             query.setString(1, request.getParameter("nombre"));
-            query.setString(2, request.getParameter("genero"));
-            query.setString(3, request.getParameter("duracion"));
-            query.setString(4, request.getParameter("estado"));
-            query.setString(5, request.getParameter("ejemplar"));
-            query.setString(6, request.getParameter("descripcion"));
+            query.setString(2, request.getParameter("poster"));
+            query.setString(3, request.getParameter("genero"));
+            query.setString(4, request.getParameter("duracion"));
+            query.setString(5, request.getParameter("estado"));
+            query.setString(6, request.getParameter("ejemplar"));
+            query.setString(7, request.getParameter("descripcion"));
 
             query.executeUpdate();
 

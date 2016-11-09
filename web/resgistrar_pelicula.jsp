@@ -22,11 +22,16 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Poster</label>
-                    <input type="file" name="poster" class="file">
+                    <input type="text" name="poster" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Genero</label>
-                    <input type="text" name="genero" class="form-control">
+                    <select class="form-control" id="select" name="genero">
+                        <option value="1">Terror</option>
+                        <option value="2">Infantil</option>
+                        <option value="3">Drama</option>
+                        <option value="4">Accion</option>
+                    </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label>Duracion</label>
@@ -37,12 +42,12 @@
                     <input type="text" name="estado" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Descripcion</label>
-                    <textarea name="descripcion" class="form-control" rows="3" id="textArea"></textarea>
-                </div>
-                <div class="form-group col-md-6">
                     <label>Ejemplar</label>
                     <input type="text" name="ejemplar" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Descripcion</label>
+                    <textarea name="descripcion" class="form-control" rows="3" id="textArea"></textarea>
                 </div>
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-default">Registrar</button>

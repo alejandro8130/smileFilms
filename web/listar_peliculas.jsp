@@ -43,6 +43,7 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nombre</th>
+                                    <th>Poster</th>
                                     <th>Genero</th>
                                     <th>Duracion</th>
                                     <th>Estado</th>
@@ -58,6 +59,7 @@
                                 <tr id="<%=id%>">
                                     <td><%= c.getId()%></td>
                                     <td class="nombre"><%= c.getNombre()%></td>
+                                    <td class="poster"><img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive"></td>
                                     <td class="genero"><%= c.getGeneroId()%></td>
                                     <td class="duracion"><%= c.getDuracion()%></td>
                                     <td class="estado"><%= c.getEstado()%></td>
