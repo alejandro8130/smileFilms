@@ -30,7 +30,7 @@
                         <option value="1">Terror</option>
                         <option value="2">Infantil</option>
                         <option value="3">Drama</option>
-                        <option value="4">Accion</option>
+                        <option value="4">Acción</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">

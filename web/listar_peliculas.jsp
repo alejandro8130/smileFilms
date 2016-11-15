@@ -4,6 +4,7 @@
     Author     : alejo
 --%>
 
+<%@page import="model.Generos"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -134,7 +135,7 @@
                         Content += "<td class='email'>" + email + "</td>";
                         Content += "<td class='documento'>" + documento + "</td>";
                         Content += "<td class='ciudad'>" + ciudad + "</td>";
-                        Content += "<td class='direccion'>" + direccion + "</td>";                        
+                        Content += "<td class='direccion'>" + direccion + "</td>";
                         Content += "<td><button type='button' class='btn btn-warning' onclick='Act(" + Id + ");'>Editar</button></td>";
                         Content += "<td><button type='button' class='btn btn-danger'>Eliminar</button></td>";
 

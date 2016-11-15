@@ -41,7 +41,7 @@ public class listar_peliculas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            HttpSession session = request.getSession(false);       
+            HttpSession session = request.getSession(false);
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
@@ -59,7 +59,9 @@ public class listar_peliculas extends HttpServlet {
                 String estado = rs.getString(6);
                 int ejemplar = Integer.parseInt(rs.getString(7));
                 String descripcion = rs.getString(8);
-
+                
+                //System.out.println(generoId);
+                
                 pelicula.setId(id);
                 pelicula.setNombre(nombre);
                 pelicula.setPoster(poster);
@@ -79,7 +81,7 @@ public class listar_peliculas extends HttpServlet {
             cnn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            
+
         }
     }
 
