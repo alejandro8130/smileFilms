@@ -149,9 +149,7 @@ Insert into Generos (nombre) values ('Drama');
 Insert into Generos (nombre) values ('Accion');
 
 Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('El triunfo del espíritu (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/race.jpg','3','120','Nuevo','5','El objetivo de Jesse Owens de llegar a ser el mejor corredor de pista y atleta de campo de la historia lo impulsa hasta el escenario de los Juegos Olímpicos de 1936, donde se enfrenta a la visión de la supremacía aria de Adolf Hitler.');
-Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('El triunfo del espíritu (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/race.jpg','3','120','Nuevo','5','El objetivo de Jesse Owens de llegar a ser el mejor corredor de pista y atleta de campo de la historia lo impulsa hasta el escenario de los Juegos Olímpicos de 1936, donde se enfrenta a la visión de la supremacía aria de Adolf Hitler.');
-
-
+Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('Buscando a Dory (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/buscando-a-dory.jpg','2','120','Nuevo','5','La amigable pero olvidadiza pez cirujano regal comienza una bÃºsqueda de sus padres perdidos hace mucho tiempo, y todos aprenden algunas cosas sobre el verdadero significado de la familia en el camino.');
 
 CREATE TABLE Barcodes (
   id INTEGER AUTO_INCREMENT NOT NULL,

@@ -4,6 +4,12 @@
     Author     : ficha1020611
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Peliculas"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="controller.conectadb"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,66 +22,63 @@
         <div class="container-fluid">
             <jsp:include page="banner.jsp" flush="true"/>
             <jsp:include page="navbar.jsp" flush="true"/>
+            <%
+                ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
+                try {
+                    conectadb con = new conectadb();
+                    Connection cnn = con.conectar();
+                    Statement stm = cnn.createStatement();
+                    String query = "SELECT * FROM Peliculas;";
+                    System.out.println(query);
+                    ResultSet rs = stm.executeQuery(query);
+                    while (rs.next()) {
+                        Peliculas pelicula = new Peliculas();
+                        int id = Integer.parseInt(rs.getString(1));
+                        String nombre = rs.getString(2);
+                        String poster = rs.getString(3);
+                        //Generos generoId = (Generos) rs.getObject(4);
+                        int duracion = Integer.parseInt(rs.getString(5));
+                        String estado = rs.getString(6);
+                        int ejemplar = Integer.parseInt(rs.getString(7));
+                        String descripcion = rs.getString(8);
+
+                        //System.out.println(generoId);
+                        pelicula.setId(id);
+                        pelicula.setNombre(nombre);
+                        pelicula.setPoster(poster);
+                        //pelicula.setGeneroId(generoId);
+                        pelicula.setDuracion(duracion);
+                        pelicula.setEstado(estado);
+                        pelicula.setEjemplar(ejemplar);
+                        pelicula.setDescripcion(descripcion);
+
+                        listarpeliculas.add(pelicula);
+
+                    }
+
+                    rs.close();
+                    cnn.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+
+                }
+
+            %>
             <div class="container peliculas">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
+                            <% for (Peliculas c : listarpeliculas) {%>
                             <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/cuando-las-luces-se-apagan.jpg" alt="imagen" class="img-pelicula">
+                                <% int id = c.getId();%>
+                                <div class="thumbnail" id="<%=id%>">                                  
+                                    <img src="<%= c.getPoster()%>" alt="imagen" class="img-pelicula">
                                     <div class="caption">
                                         <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/buscando-a-dory.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/the-infiltrator.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/race.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/del-otro-lado-de-la-puerta.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/12-horas-para-sobrevivir-el-ano-de-la-eleccion.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4">
-                                <div class="thumbnail">
-                                    <img src="imagenes/capitan-america-civil-war.jpg" alt="imagen" class="img-pelicula">
-                                    <div class="caption">
-                                        <p class="text-center"><a href="#" class="btn btn-default" role="button">Reservar</a></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <% }%>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -96,46 +99,17 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/cuando-las-luces-se-apagan.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
+                                    <% for (Peliculas c : listarpeliculas) {%>
+                                    <% int id = c.getId();%>
+                                    <div class="col-md-6" id="<%=id%>">                                        
+                                        <img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive img-destacados">
                                     </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/buscando-a-dory.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/the-infiltrator.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/race.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/del-otro-lado-de-la-puerta.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a href="#" class="list-group-item">
-                                            <img src="imagenes/12-horas-para-sobrevivir-el-ano-de-la-eleccion.jpg" alt="imagen" class="img-responsive img-destacados">
-                                        </a>
-                                    </div>
+                                    <% }%>                                  
                                 </div>
                             </div>
                         </div>
-                        <div class="list-group">
-
-
-                        </div>
                     </div>
                 </div>
-
             </div>
         </div>    
     </body>
