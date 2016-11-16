@@ -87,7 +87,6 @@
                         var telefono = $("#" + Id + " .telefono").html();
                         var apellido = $("#" + Id + " .apellido").html();
                         var fecha = $("#" + Id + " .fecha").html();
-                        var fecha = $("#" + Id + " .fecha").html();
                         var email = $("#" + Id + " .email").html();
                         var documento = $("#" + Id + " .documento").html();
                         var ciudad = $("#" + Id + " .ciudad").html();
@@ -126,6 +125,40 @@
                         var Content;
 
 //Acá se puede incluir función ajax para guardar en el servidor
+                        $(document).ready(function () {
+                            $("#enviar").click(function () {
+                                var formulario = $("#frminformacion").serializeArray();
+                                $.ajax({
+                                    type: "POST",
+                                    dataType: 'json',
+                                    url: "editar_cliente",
+                                    data: formulario,
+                                    console.log();
+                                }).done(function (respuesta) {
+                                    $("#mensaje").html(respuesta.mensaje);
+                                });
+                            });
+
+                            function limpiarformulario(formulario) {
+
+                                $(formulario).find('input').each(function () {
+                                    switch (this.type) {
+                                        case 'password':
+                                        case 'text':
+                                            $(this).val('');
+                                            break;
+                                        case 'checkbox':
+                                        case 'radio':
+                                            this.checked = false;
+                                    }
+                                });
+
+                                $(formulario).find('select').each(function () {
+                                    $("#" + this.id + " option[value=0]").attr("selected", true);
+
+                                });
+                            }
+                        });
 
 
                         Content += "<td>" + Id + "</td>";
@@ -136,7 +169,7 @@
                         Content += "<td class='email'>" + email + "</td>";
                         Content += "<td class='documento'>" + documento + "</td>";
                         Content += "<td class='ciudad'>" + ciudad + "</td>";
-                        Content += "<td class='direccion'>" + direccion + "</td>";                        
+                        Content += "<td class='direccion'>" + direccion + "</td>";
                         Content += "<td><button type='button' class='btn btn-warning' onclick='Act(" + Id + ");'>Editar</button></td>";
                         Content += "<td><button type='button' class='btn btn-danger'>Eliminar</button></td>";
 
