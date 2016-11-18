@@ -58,6 +58,7 @@ public class listar_cliente extends HttpServlet {
                 String documento = rs.getString(8);
                 String ciudad = rs.getString(9);
                 String direccion = rs.getString(10);
+                                System.out.println("");
 
                 clien.setId(rs.getInt(1));
                 clien.setNombre(nombre);

@@ -30,10 +30,9 @@
                 conectadb con = new conectadb();
                 Connection cnn = con.conectar();
                 Statement stm = cnn.createStatement();
-                String query = "SELECT * FROM Clientes WHERE id=2;";
+                String query = "SELECT * FROM Clientes WHERE id=1;";
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
-                Clientes clien = new Clientes();
                 int id = Integer.parseInt(rs.getString(1));
                 nombre = rs.getString(2);
                 String apellido = rs.getString(3);
@@ -44,9 +43,8 @@
                 String direccion = rs.getString(10);
 
                 System.out.println(query);
+                System.out.println(ciudad);
 
-                session.setAttribute("lista", listarclientes);
-                request.getRequestDispatcher("listar_cliente2.jsp").forward(request, response);
                 rs.close();
                 cnn.close();
             } catch (SQLException e) {
