@@ -18,15 +18,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Generos;
-import model.Peliculas;
+import model.Clientes;
 
 /**
  *
- * @author alejo
+ * @author ficha1020611
  */
-@WebServlet(name = "listar_peliculas", urlPatterns = {"/listar_peliculas"})
-public class listar_peliculas extends HttpServlet {
+@WebServlet(name = "listar_cliente", urlPatterns = {"/listar_cliente"})
+public class listar_cliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,47 +40,46 @@ public class listar_peliculas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            HttpSession session = request.getSession(false);
+            HttpSession session = request.getSession(false);       
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Peliculas;";
-            ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
+            String query = "SELECT * FROM Clientes;";
+            ArrayList<Clientes> listarclientes = new ArrayList<>();
             System.out.println(query);
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                Peliculas pelicula = new Peliculas();
-                Generos generoid = new Generos();
-                generoid.setNombre(rs.getString(4));
+                Clientes clien = new Clientes();
                 int id = Integer.parseInt(rs.getString(1));
                 String nombre = rs.getString(2);
-                String poster = rs.getString(3);
-                //Generos generoId = (Generos) rs.getObject(4);
-                int duracion = Integer.parseInt(rs.getString(5));
-                String estado = rs.getString(6);
-                int ejemplar = Integer.parseInt(rs.getString(7));
-                String descripcion = rs.getString(8);
-                                
-                pelicula.setId(id);
-                pelicula.setNombre(nombre);
-                pelicula.setPoster(poster);
-                pelicula.setGeneroId(generoid);
-                pelicula.setDuracion(duracion);
-                pelicula.setEstado(estado);
-                pelicula.setEjemplar(ejemplar);
-                pelicula.setDescripcion(descripcion);
+                String apellido = rs.getString(3);
+                String tel = rs.getString(5);
+                String email = rs.getString(6);
+                String documento = rs.getString(8);
+                String ciudad = rs.getString(9);
+                String direccion = rs.getString(10);
 
-                listarpeliculas.add(pelicula);
+                clien.setId(rs.getInt(1));
+                clien.setNombre(nombre);
+                clien.setApellido(apellido);
+                clien.setFechaNacimiento(rs.getDate(4));
+                clien.setTel(tel);
+                clien.setEmail(email);
+                clien.setDocumento(documento);
+                clien.setCiudad(ciudad);
+                clien.setDireccion(direccion);
+
+                listarclientes.add(clien);
 
             }
 
-            session.setAttribute("lista", listarpeliculas);
-            request.getRequestDispatcher("listar_peliculas.jsp").forward(request, response);
+            session.setAttribute("lista", listarclientes);
+            request.getRequestDispatcher("listar_cliente2.jsp").forward(request, response);
             rs.close();
             cnn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-
+            
         }
     }
 

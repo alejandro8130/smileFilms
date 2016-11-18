@@ -8,25 +8,20 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Generos;
-import model.Peliculas;
 
 /**
  *
- * @author alejo
+ * @author ficha1020611
  */
-@WebServlet(name = "listar_peliculas", urlPatterns = {"/listar_peliculas"})
-public class listar_peliculas extends HttpServlet {
+@WebServlet(name = "editar_cliente", urlPatterns = {"/editar_cliente"})
+public class editar_cliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,47 +36,25 @@ public class listar_peliculas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            HttpSession session = request.getSession(false);
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
-            Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Peliculas;";
-            ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
+            PreparedStatement query = cnn.prepareStatement("Update Clientes set nombre=?, apellido=?, fecha_nacimiento=?, tel=?,email=?, Rol_id=?,documento=?, ciudad=?, direccion=? where id=?;");
+            query.setString(1, request.getParameter("nombre"));
+            query.setString(2, request.getParameter("apellido"));
+            query.setString(3, request.getParameter("fecha"));
+            query.setString(4, request.getParameter("tel"));
+            query.setString(5, request.getParameter("email"));
+            query.setString(7, request.getParameter("documento"));
+            query.setString(8, request.getParameter("ciudad"));
+            query.setString(9, request.getParameter("direccion"));
+            query.setString(10, request.getParameter("id"));
+            query.executeUpdate();
+
+            request.getRequestDispatcher("listar_cliente2.jsp").forward(request, response);
             System.out.println(query);
-            ResultSet rs = stm.executeQuery(query);
-            while (rs.next()) {
-                Peliculas pelicula = new Peliculas();
-                Generos generoid = new Generos();
-                generoid.setNombre(rs.getString(4));
-                int id = Integer.parseInt(rs.getString(1));
-                String nombre = rs.getString(2);
-                String poster = rs.getString(3);
-                //Generos generoId = (Generos) rs.getObject(4);
-                int duracion = Integer.parseInt(rs.getString(5));
-                String estado = rs.getString(6);
-                int ejemplar = Integer.parseInt(rs.getString(7));
-                String descripcion = rs.getString(8);
-                                
-                pelicula.setId(id);
-                pelicula.setNombre(nombre);
-                pelicula.setPoster(poster);
-                pelicula.setGeneroId(generoid);
-                pelicula.setDuracion(duracion);
-                pelicula.setEstado(estado);
-                pelicula.setEjemplar(ejemplar);
-                pelicula.setDescripcion(descripcion);
-
-                listarpeliculas.add(pelicula);
-
-            }
-
-            session.setAttribute("lista", listarpeliculas);
-            request.getRequestDispatcher("listar_peliculas.jsp").forward(request, response);
-            rs.close();
             cnn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 

@@ -1,32 +1,27 @@
+package controller;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Generos;
-import model.Peliculas;
 
 /**
  *
- * @author alejo
+ * @author ficha1020611
  */
-@WebServlet(name = "listar_peliculas", urlPatterns = {"/listar_peliculas"})
-public class listar_peliculas extends HttpServlet {
+@WebServlet(urlPatterns = {"/listar_cliente2"})
+public class listar_cliente2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,48 +35,17 @@ public class listar_peliculas extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            HttpSession session = request.getSession(false);
-            conectadb con = new conectadb();
-            Connection cnn = con.conectar();
-            Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Peliculas;";
-            ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
-            System.out.println(query);
-            ResultSet rs = stm.executeQuery(query);
-            while (rs.next()) {
-                Peliculas pelicula = new Peliculas();
-                Generos generoid = new Generos();
-                generoid.setNombre(rs.getString(4));
-                int id = Integer.parseInt(rs.getString(1));
-                String nombre = rs.getString(2);
-                String poster = rs.getString(3);
-                //Generos generoId = (Generos) rs.getObject(4);
-                int duracion = Integer.parseInt(rs.getString(5));
-                String estado = rs.getString(6);
-                int ejemplar = Integer.parseInt(rs.getString(7));
-                String descripcion = rs.getString(8);
-                                
-                pelicula.setId(id);
-                pelicula.setNombre(nombre);
-                pelicula.setPoster(poster);
-                pelicula.setGeneroId(generoid);
-                pelicula.setDuracion(duracion);
-                pelicula.setEstado(estado);
-                pelicula.setEjemplar(ejemplar);
-                pelicula.setDescripcion(descripcion);
-
-                listarpeliculas.add(pelicula);
-
-            }
-
-            session.setAttribute("lista", listarpeliculas);
-            request.getRequestDispatcher("listar_peliculas.jsp").forward(request, response);
-            rs.close();
-            cnn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet listar_cliente2</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet listar_cliente2 at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

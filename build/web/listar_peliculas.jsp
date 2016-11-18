@@ -61,7 +61,7 @@
                                     <td><%= c.getId()%></td>
                                     <td class="nombre"><%= c.getNombre()%></td>
                                     <td class="poster"><img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive"></td>
-                                    <td class="genero"><%= c.getGeneroId()%></td>
+                                    <td class="genero"><%= c.getGeneroId().getNombre()%></td>
                                     <td class="duracion"><%= c.getDuracion()%></td>
                                     <td class="estado"><%= c.getEstado()%></td>
                                     <td class="ejemplar"><%= c.getEjemplar()%></td>

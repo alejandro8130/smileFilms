@@ -4,6 +4,12 @@
     Author     : alejo
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="controller.conectadb"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Generos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +19,31 @@
     <body>     
         <jsp:include page="banner.jsp" flush="true"/>
         <jsp:include page="navbar.jsp" flush="true"/>
+        <%
+            ArrayList<Generos> listargeneros = new ArrayList<>();
+            try {
+                conectadb con = new conectadb();
+                Connection cnn = con.conectar();
+                Statement stm = cnn.createStatement();
+                String query = "SELECT * FROM Generos;";
+                System.out.println(query);
+                ResultSet rs = stm.executeQuery(query);
+                while (rs.next()) {
+                    Generos genero = new Generos();
+                    int id = Integer.parseInt(rs.getString(1));
+                    String nombre = rs.getString(2);
+
+                    genero.setId(id);
+                    genero.setNombre(nombre);
+
+                    listargeneros.add(genero);
+                }
+                rs.close();
+                cnn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
         <div class="container well">
             <form method="POST" action="registrar_pelicula">                  
                 <h1>Registrar Pelicula</h1>
@@ -27,10 +58,10 @@
                 <div class="form-group col-md-6">
                     <label>Genero</label>
                     <select class="form-control" id="select" name="genero">
-                        <option value="1">Terror</option>
-                        <option value="2">Infantil</option>
-                        <option value="3">Drama</option>
-                        <option value="4">Acción</option>
+                        <option value="0">Selecionar</option> 
+                    <% for (Generos g : listargeneros) {%>                    
+                        <option value="<%= g.getId()%>"><%= g.getNombre()%></option>                    
+                    <% }%>
                     </select>
                 </div>
                 <div class="form-group col-md-6">

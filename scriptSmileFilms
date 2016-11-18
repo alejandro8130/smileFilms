@@ -165,3 +165,9 @@ Insert into Barcodes (nombre,descripcion,barcode) values ('Jackass','Comedia','3
 Insert into Barcodes (nombre,descripcion,barcode) values ('El Hobbit','Aventura','4');
 Insert into Barcodes (nombre,descripcion,barcode) values ('Los juegos del hambre','Acción','5');
 Insert into Barcodes (nombre,descripcion,barcode) values ('Mamá','Drama','6');
+
+"Select Clientes.nombre,Clientes.apellido, Peliculas.nombre, "
+                   + "Prestamos.fecha_devolucion, Prestamos.pago, Empleados.nombre,Empleados.apellido from Prestamos "
+                   + "inner join Clientes on Prestamos.Cliente_id=Clientes.id "
+                   + "inner join Peliculas on Prestamos.Pelicula_id=Peliculas.id "
+                   + "inner join Empleados on Prestamos.Empleado_id=Empleados.id;";
