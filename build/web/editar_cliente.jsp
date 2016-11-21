@@ -18,7 +18,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     ArrayList<Clientes> listarclientes = new ArrayList<>();
-    int id = 0;
+    String ids = "";
     String nombre = "";
     String apellido = "";
     String tel = "";
@@ -40,11 +40,12 @@
                 conectadb con = new conectadb();
                 Connection cnn = con.conectar();
                 Statement stm = cnn.createStatement();
-                String query = "SELECT * FROM Clientes WHERE id="+id+";";
+                ids = request.getParameter("id");
+                String query = "SELECT * FROM Clientes WHERE id="+ids+";";
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
                 while (rs.next()) {
-                    id = Integer.parseInt(rs.getString(1));
+                    //ids = Integer.parseInt(rs.getString(1));
                     nombre = rs.getString(2);
                     apellido = rs.getString(3);
                     tel = rs.getString(5);
