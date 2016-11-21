@@ -37,10 +37,6 @@
                     <input type="text" name="email" class="form-control">
                 </div>
                 <div class="form-group col-md-6">
-                    <label>Carnet</label>
-                    <input type="text" name="carnet" class="form-control">
-                </div>
-                <div class="form-group col-md-6">
                     <label>Documento</label>
                     <input type="text" name="documento" class="form-control">
                 </div>

@@ -65,7 +65,7 @@
                                     <td class="ciudad"><%= c.getCiudad()%></td>
                                     <td class="direccion"><%= c.getDireccion()%></td>
                                     <td><a href="editar_cliente.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
-                                    <td><a type="button" class="btn btn-danger">Eliminar</a></td>
+                                    <td><a href="eliminar_cliente?id=<%=id%>" type="button" class="btn btn-danger">Eliminar</a></td>
                                 </tr>
                                 <% }%>
 

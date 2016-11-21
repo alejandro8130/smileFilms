@@ -45,12 +45,12 @@ public class cliente extends HttpServlet {
             query.setString(3, request.getParameter("fecha"));
             query.setString(4, request.getParameter("tel"));
             query.setString(5, request.getParameter("email"));
-            query.setString(7, request.getParameter("documento"));
-            query.setString(8, request.getParameter("ciudad"));
-            query.setString(9, request.getParameter("direccion"));
+            query.setString(6, request.getParameter("documento"));
+            query.setString(7, request.getParameter("ciudad"));
+            query.setString(8, request.getParameter("direccion"));
             query.executeUpdate();
 
-
+            request.getRequestDispatcher("listar_cliente").forward(request, response);
             System.out.println(query);
             cnn.close();
         } catch (SQLException e) {

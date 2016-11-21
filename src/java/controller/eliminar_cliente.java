@@ -9,19 +9,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Clientes;
 
 /**
  *
  * @author ficha1020611
  */
-@WebServlet(name = "editar_cliente", urlPatterns = {"/editar_cliente"})
-public class editar_cliente extends HttpServlet {
+@WebServlet(name = "eliminar_cliente", urlPatterns = {"/eliminar_cliente"})
+public class eliminar_cliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,16 +43,8 @@ public class editar_cliente extends HttpServlet {
         try {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
-            PreparedStatement query = cnn.prepareStatement("Update Clientes set nombre=?, apellido=?, fecha_nacimiento=?, tel=?,email=?, Rol_id=3,documento=?, ciudad=?, direccion=? where id=?;");
-            query.setString(1, request.getParameter("nombre"));
-            query.setString(2, request.getParameter("apellido"));
-            query.setString(3, request.getParameter("fecha"));
-            query.setString(4, request.getParameter("tel"));
-            query.setString(5, request.getParameter("email"));
-            query.setString(6, request.getParameter("documento"));
-            query.setString(7, request.getParameter("ciudad"));            
-            query.setString(8, request.getParameter("direccion"));
-            query.setString(9, request.getParameter("id"));
+            String ids = request.getParameter("id");
+            PreparedStatement query = cnn.prepareStatement("DELETE FROM Clientes WHERE id="+ids+";");
             query.executeUpdate();
 
             request.getRequestDispatcher("listar_cliente").forward(request, response);
