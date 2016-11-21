@@ -55,7 +55,6 @@
                     direccion = rs.getString(10);
 
                     System.out.println(query);
-                    System.out.println(ciudad);
                     rs.close();
                     cnn.close();
                 }
@@ -65,7 +64,7 @@
             }
         %>
         <div class="container well">
-            <form method="POST" action="cliente" id="registrationForm">                  
+            <form method="POST" action="editar_cliente" id="registrationForm">                  
                 <h1>Registrar Cliente</h1>
                 <div class="form-group col-md-6">
                     <label>Nombre</label>
@@ -102,7 +101,11 @@
                 <div class="form-group col-md-6">
                     <label>Foto</label>
                     <input type="file" name="foto" class="file">
-                </div>    
+                </div>                  
+                <div class="form-group col-md-6">
+                    <label>Id</label>
+                    <input type="text" name="id" class="form-control" value="<%= ids%>">
+                </div>
                 <div class="col-md-12 center">
                     <button type="submit" class="btn btn-default">Registrar</button>
                 </div>    

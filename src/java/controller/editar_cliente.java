@@ -35,25 +35,27 @@ public class editar_cliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PreparedStatement query = null;
         try {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
-            PreparedStatement query = cnn.prepareStatement("Update Clientes set nombre=?, apellido=?, fecha_nacimiento=?, tel=?,email=?, Rol_id=?,documento=?, ciudad=?, direccion=? where id=?;");
+            query = cnn.prepareStatement("Update Clientes set nombre=?, apellido=?, fecha_nacimiento=?, tel=?,email=?, Rol_id=3,documento=?, ciudad=?, direccion=? where id=?;");
             query.setString(1, request.getParameter("nombre"));
             query.setString(2, request.getParameter("apellido"));
             query.setString(3, request.getParameter("fecha"));
             query.setString(4, request.getParameter("tel"));
             query.setString(5, request.getParameter("email"));
-            query.setString(7, request.getParameter("documento"));
-            query.setString(8, request.getParameter("ciudad"));
-            query.setString(9, request.getParameter("direccion"));
-            query.setString(10, request.getParameter("id"));
+            query.setString(6, request.getParameter("documento"));
+            query.setString(7, request.getParameter("ciudad"));            
+            query.setString(8, request.getParameter("direccion"));
+            query.setString(9, request.getParameter("id"));
             query.executeUpdate();
 
             request.getRequestDispatcher("listar_cliente2.jsp").forward(request, response);
             System.out.println(query);
             cnn.close();
         } catch (SQLException e) {
+            System.out.println(query);
             e.printStackTrace();
         }
     }
