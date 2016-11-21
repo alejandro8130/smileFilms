@@ -4,6 +4,9 @@
     Author     : ficha1020611
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="controller.listar_cliente"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
@@ -15,7 +18,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     ArrayList<Clientes> listarclientes = new ArrayList<>();
-    String nombre = "alejo";
+    int id = 0;
+    String nombre = "";
+    String apellido = "";
+    String tel = "";
+    String email = "";
+    String documento = "";
+    String ciudad = "";
+    String direccion = "";
 %>
 <!DOCTYPE html>
 <html>
@@ -30,23 +40,24 @@
                 conectadb con = new conectadb();
                 Connection cnn = con.conectar();
                 Statement stm = cnn.createStatement();
-                String query = "SELECT * FROM Clientes WHERE id=1;";
+                String query = "SELECT * FROM Clientes WHERE id="+id+";";
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
-                int id = Integer.parseInt(rs.getString(1));
-                nombre = rs.getString(2);
-                String apellido = rs.getString(3);
-                String tel = rs.getString(5);
-                String email = rs.getString(6);
-                String documento = rs.getString(8);
-                String ciudad = rs.getString(9);
-                String direccion = rs.getString(10);
+                while (rs.next()) {
+                    id = Integer.parseInt(rs.getString(1));
+                    nombre = rs.getString(2);
+                    apellido = rs.getString(3);
+                    tel = rs.getString(5);
+                    email = rs.getString(6);
+                    documento = rs.getString(8);
+                    ciudad = rs.getString(9);
+                    direccion = rs.getString(10);
 
-                System.out.println(query);
-                System.out.println(ciudad);
-
-                rs.close();
-                cnn.close();
+                    System.out.println(query);
+                    System.out.println(ciudad);
+                    rs.close();
+                    cnn.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
 
@@ -61,7 +72,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Apellido</label>
-                    <input type="text" name="apellido" class="form-control" value="">
+                    <input type="text" name="apellido" class="form-control" value="<%= apellido%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Fecha de Nacimiento</label>
@@ -69,23 +80,23 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Telefono</label>
-                    <input type="text" name="tel" class="form-control" value="">
+                    <input type="text" name="tel" class="form-control" value="<%= tel%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="">
+                    <input type="text" name="email" class="form-control" value="<%= email%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Documento</label>
-                    <input type="text" name="documento" class="form-control" value="">
+                    <input type="text" name="documento" class="form-control" value="<%= documento%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Ciudad</label>
-                    <input type="text" name="ciudad" class="form-control" value="">
+                    <input type="text" name="ciudad" class="form-control" value="<%= ciudad%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Dirección</label>
-                    <input type="text" name="direccion" class="form-control" value="">
+                    <input type="text" name="direccion" class="form-control" value=" <%= direccion%>">
                 </div> 
                 <div class="form-group col-md-6">
                     <label>Foto</label>

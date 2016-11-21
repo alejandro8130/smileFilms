@@ -5,9 +5,7 @@
         <group>
             <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/editar_cliente.java</file>
             <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/editar_cliente.jsp</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/listar_cliente2.jsp</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/listar_cliente.java</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/navbar.jsp</file>
+            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/listar.java</file>
         </group>
     </open-files>
 </project-private>
