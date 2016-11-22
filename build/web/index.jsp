@@ -102,7 +102,9 @@
                                     <% for (Peliculas c : listarpeliculas) {%>
                                     <% int id = c.getId();%>
                                     <div class="col-md-6" id="<%=id%>">                                        
-                                        <img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive img-destacados">
+                                        <a href="mostrar_pelicula.jsp?id=<%=id%>">
+                                            <img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive img-destacados">
+                                        </a>
                                     </div>
                                     <% }%>                                  
                                 </div>

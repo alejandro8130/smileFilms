@@ -26,6 +26,7 @@
     String documento = "";
     String ciudad = "";
     String direccion = "";
+    String fecha = "";
 %>
 <!DOCTYPE html>
 <html>
@@ -45,9 +46,9 @@
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
                 while (rs.next()) {
-                    //ids = Integer.parseInt(rs.getString(1));
                     nombre = rs.getString(2);
                     apellido = rs.getString(3);
+                    fecha = rs.getString(4);
                     tel = rs.getString(5);
                     email = rs.getString(6);
                     documento = rs.getString(8);
@@ -64,8 +65,8 @@
             }
         %>
         <div class="container well">
+            <h1>Editar Empleado</h1>
             <form method="POST" action="editar_cliente" id="registrationForm">                  
-                <h1>Registrar Cliente</h1>
                 <div class="form-group col-md-6">
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="form-control" value="<%= nombre%>">
@@ -76,7 +77,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" name="fecha" value="">
+                    <input type="date" class="form-control" name="fecha" value="<%= fecha%>">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Telefono</label>

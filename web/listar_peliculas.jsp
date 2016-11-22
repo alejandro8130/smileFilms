@@ -66,6 +66,7 @@
                                     <td class="estado"><%= c.getEstado()%></td>
                                     <td class="ejemplar"><%= c.getEjemplar()%></td>
                                     <td class="descripcion"><%= c.getDescripcion()%></td>
+                                    <td><a href="mostrar_pelicula.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
                                     <td><button type="button" class="btn btn-warning" onclick="Act(<%=id%>);">Editar</button></td>
                                     <td><button type="button" class="btn btn-danger">Eliminar</button></td>
                                 </tr>
