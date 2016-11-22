@@ -13,27 +13,59 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.jsp">Home</a></li>
-                <li><a href="listar_barcode?pag=0">Barcode</a></li>
-                    <%
-                        HttpSession rs = request.getSession();
-                        String rol;
-                        if (rs.getAttribute("rol") == null) {
-                            rol = "Vacio";
-                        } else {
-                            rol = (String) rs.getAttribute("rol");
-                        }
+                <li><a href="listar_barcode?pag=0">Barcode</a></li>               
+                <%
+                    HttpSession rs = request.getSession();
+                    String rol;
+                    if (rs.getAttribute("rol") == null) {
+                        rol = "Vacio";
+                    } else {
+                        rol = (String) rs.getAttribute("rol");
+                    }
 
-                        if (rol.equals("1")) { %>                      
-                <li><a href="registrar_empleado.jsp">Empleados</a></li> 
-                <li><a href="registrar_cliente.jsp">R Clientes</a></li>
-                <li><a href="listar?pag=0">Clientes</a></li>
-                <li><a href="listar_cliente?pag=0">Clientes2</a></li>
-                <li><a href="resgistrar_pelicula.jsp">R Peliculas</a></li>
-                <li><a href="listar_peliculas?pag=0">Peliculas</a></li>
-                <li><a href="resgistrar_prestamo.jsp">Prestamos</a></li>                         
+                    if (rol.equals("1")) { %>                      
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="registrar_empleado.jsp">Registrar</a></li>
+                        <li><a href="listar_empleados?pag=0">Listar2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="registrar_cliente.jsp">Registrar</a></li>
+                        <li><a href="listar?pag=0">Listar</a></li>
+                        <li><a href="listar_cliente?pag=0">Listar2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Peliculas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resgistrar_pelicula.jsp">Registrar</a></li>
+                        <li><a href="listar_peliculas?pag=0">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Prestamos<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resgistrar_prestamo.jsp">Registrar</a></li>
+                    </ul>
+                </li>               
                     <% } else if (rol.equals("2")) { %>
-                <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
-                <li><a href="resgistrar_prestamo">Prestamos</a></li> 
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Peliculas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resgistrar_pelicula.jsp">Registrar</a></li>
+                        <li><a href="listar_peliculas?pag=0">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Prestamos<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resgistrar_prestamo.jsp">Registrar</a></li>
+                    </ul>
+                </li> 
                     <% } else if (rol.equals("3")) { %>
                 <li><a href="resgistrar_pelicula.jsp">Peliculas</a></li>
                     <% }%>        

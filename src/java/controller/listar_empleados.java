@@ -18,14 +18,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Clientes;
+import model.Empleados;
+import model.Roles;
 
 /**
  *
  * @author ficha1020611
  */
-@WebServlet(name = "listar_cliente", urlPatterns = {"/listar_cliente"})
-public class listar_cliente extends HttpServlet {
+@WebServlet(name = "listar_empleados", urlPatterns = {"/listar_empleados"})
+public class listar_empleados extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,37 +45,36 @@ public class listar_cliente extends HttpServlet {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Clientes;";
-            ArrayList<Clientes> listarclientes = new ArrayList<>();
+            String query = "SELECT * FROM Empleados;";
+            ArrayList<Empleados> listarempleados = new ArrayList<>();
             System.out.println(query);
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
-                Clientes clien = new Clientes();
+                Empleados empleado = new Empleados();
+                Roles rolid = new Roles();
+                rolid.setNombre(rs.getString(6));
                 int id = Integer.parseInt(rs.getString(1));
                 String nombre = rs.getString(2);
                 String apellido = rs.getString(3);
-                String tel = rs.getString(5);
-                String email = rs.getString(6);
-                String documento = rs.getString(8);
-                String ciudad = rs.getString(9);
-                String direccion = rs.getString(10);
+                String tel = rs.getString(4);
+                String email = rs.getString(5);
+                String documento = rs.getString(7);
 
-                clien.setId(rs.getInt(1));
-                clien.setNombre(nombre);
-                clien.setApellido(apellido);
-                clien.setFechaNacimiento(rs.getDate(4));
-                clien.setTel(tel);
-                clien.setEmail(email);
-                clien.setDocumento(documento);
-                clien.setCiudad(ciudad);
-                clien.setDireccion(direccion);
+                empleado.setId(rs.getInt(1));
+                empleado.setNombre(nombre);
+                empleado.setApellido(apellido);                
+                empleado.setTel(tel);
+                empleado.setEmail(email);
+                empleado.setRolid(rolid);
+                empleado.setDocumento(documento);
+                empleado.setFechaInicio(rs.getDate(8));
 
-                listarclientes.add(clien);
+                listarempleados.add(empleado);
 
             }
 
-            session.setAttribute("lista", listarclientes);
-            request.getRequestDispatcher("listar_cliente2.jsp").forward(request, response);
+            session.setAttribute("lista", listarempleados);
+            request.getRequestDispatcher("listar_empleados.jsp").forward(request, response);
             rs.close();
             cnn.close();
         } catch (SQLException e) {

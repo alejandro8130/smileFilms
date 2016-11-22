@@ -68,9 +68,9 @@
                     <label>Genero</label>
                     <select class="form-control" id="select" name="rol">
                         <option value="0">Selecionar</option> 
-                    <% for (Roles r : listarroles) {%>                    
+                        <% for (Roles r : listarroles) {%>                    
                         <option value="<%= r.getId()%>"><%= r.getNombre()%></option>                    
-                    <% }%>
+                        <% }%>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -86,7 +86,6 @@
                 </div>
             </form>
         </div>
-    </div>
-</body>
+    </body>
 </html>
 

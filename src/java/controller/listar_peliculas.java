@@ -56,7 +56,6 @@ public class listar_peliculas extends HttpServlet {
                 int id = Integer.parseInt(rs.getString(1));
                 String nombre = rs.getString(2);
                 String poster = rs.getString(3);
-                //Generos generoId = (Generos) rs.getObject(4);
                 int duracion = Integer.parseInt(rs.getString(5));
                 String estado = rs.getString(6);
                 int ejemplar = Integer.parseInt(rs.getString(7));
