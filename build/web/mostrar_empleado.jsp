@@ -1,9 +1,10 @@
 <%-- 
-    Document   : mostrar_cliente
-    Created on : 22/11/2016, 08:14:00 AM
+    Document   : mostrar_empleado
+    Created on : 23/11/2016, 10:37:26 AM
     Author     : ficha1020611
 --%>
 
+<%@page import="model.Roles"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
@@ -22,9 +23,9 @@
     String apellido = "";
     String tel = "";
     String email = "";
+    Roles rolid = new Roles();
     String documento = "";
-    String ciudad = "";
-    String direccion = "";
+    String fecha = "";
 %>
 <!DOCTYPE html>
 <html>
@@ -40,18 +41,17 @@
                 Connection cnn = con.conectar();
                 Statement stm = cnn.createStatement();
                 ids = request.getParameter("id");
-                String query = "SELECT * FROM Clientes WHERE id=" + ids + ";";
+                String query = "SELECT * FROM Empleados WHERE id=" + ids + ";";
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
                 while (rs.next()) {
-                    //ids = Integer.parseInt(rs.getString(1));
                     nombre = rs.getString(2);
                     apellido = rs.getString(3);
-                    tel = rs.getString(5);
-                    email = rs.getString(6);
-                    documento = rs.getString(8);
-                    ciudad = rs.getString(9);
-                    direccion = rs.getString(10);
+                    tel = rs.getString(4);
+                    email = rs.getString(5);
+                    rolid.setNombre(rs.getString(6));
+                    documento = rs.getString(7);
+                    fecha = rs.getString(8);
 
                     System.out.println(query);
                     rs.close();
@@ -69,39 +69,37 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Fecha de Nacimiento</th>
                         <th>Telefono</th>
+                        <th>Email</th>                        
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><%= nombre%></td>
                         <td><%= apellido%></td>
-                        <td>10/12/2016</td>
                         <td><%= tel%></td>
+                        <td><%= email%></td>
                 </tbody>
             </table>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Email</th>
+                        <th>Cargo</th>
                         <th>Documento</th>
-                        <th>Ciudad</th>
-                        <th>Dirección</th>
+                        <th>Fecha de Incio</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><%= email%></td>
+                        <td><%= rolid%></td>
                         <td><%= documento%></td>
-                        <td><%= ciudad%></td>
-                        <td><%= direccion%></td>
+                        <td><%= fecha%></td>
                     </tr>
                 </tbody>
             </table>
             <div class="row">
                 <div class="col-md-12">
-                    <a href="listar_cliente" type="button" class="btn btn-danger" >Atras</a>
+                    <a href="listar_empleado" type="button" class="btn btn-danger" >Atras</a>
                 </div>
             </div>
         </div>

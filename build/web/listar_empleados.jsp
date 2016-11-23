@@ -50,11 +50,14 @@
                                     <th>Fecha de Inicio</th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>                            
-                                <% for (Empleados e : lista) {%>
-                                <% int id = e.getId();%>
+                                <% 
+                                    int id = 0;
+                                    for (Empleados e : lista) {
+                                    id = e.getId();%>
                                 <tr id="<%=id%>">
                                     <td><%= e.getId()%></td>
                                     <td class="nombre"><%= e.getNombre()%></td>
@@ -63,14 +66,32 @@
                                     <td class="telefono"><%= e.getEmail()%></td>                                    
                                     <td class="ciudad"><%= e.getRolid().getNombre()%></td>
                                     <td class="email"><%= e.getDocumento()%></td>
-                                    <td class="documento"><%= e.getFechaInicio()%></td>                                    
+                                    <td class="documento"><%= e.getFechaInicio()%></td>        
+                                    <td><a href="mostrar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
                                     <td><a href="editar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
-                                    <td><a href="eliminar_empleado?id=<%=id%>" type="button" class="btn btn-danger">Eliminar</a></td>
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
                                 </tr>
                                 <% }%>
 
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Empleado</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Estas seguro?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="eliminar_empleado?id=<%=id%>" type="button" class="btn btn-danger">Aceptar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>

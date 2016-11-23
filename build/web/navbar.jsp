@@ -51,7 +51,18 @@
                     <ul class="dropdown-menu">
                         <li><a href="resgistrar_prestamo.jsp">Registrar</a></li>
                     </ul>
-                </li>               
+                </li>       
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tablas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resgistrar_prestamo.jsp">Devoluciones</a></li>
+                        <li><a href="resgistrar_prestamo.jsp">Liquidaciones</a></li>
+                        <li><a href="resgistrar_prestamo.jsp">Reportes</a></li>
+                        <li><a href="resgistrar_prestamo.jsp">Reservas</a></li>
+                        <li><a href="resgistrar_prestamo.jsp">sanciones</a></li>
+                        <li><a href="resgistrar_prestamo.jsp">Sugerencias</a></li>
+                    </ul>
+                </li>
                     <% } else if (rol.equals("2")) { %>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Peliculas<span class="caret"></span></a>

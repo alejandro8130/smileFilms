@@ -17,7 +17,6 @@
 <%@page import="controller.conectadb"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    ArrayList<Clientes> listarclientes = new ArrayList<>();
     String ids = "";
     String nombre = "";
     String apellido = "";
@@ -64,7 +63,7 @@
             }
         %>
         <div class="container well">
-            <h1>Mostar Cliente</h1>
+            <h1>Mostrar Cliente</h1>
             <table class="table">
                 <thead>
                     <tr>
