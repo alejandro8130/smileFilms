@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/editar_cliente.java</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/editar_cliente.jsp</file>
+            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/listar_peliculas.jsp</file>
             <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/listar_cliente2.jsp</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/listar_cliente.java</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/eliminar_cliente.java</file>
-            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/src/java/controller/listar_barcode.java</file>
+            <file>file:/home/ficha1020611/NetBeansProjects/smileFilms/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

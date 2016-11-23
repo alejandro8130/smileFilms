@@ -6,6 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Empleados"%>
+<%@page import="model.Roles"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
@@ -60,7 +61,7 @@
                                     <td class="apellido"><%= e.getApellido()%></td>
                                     <td class="fecha"><%= e.getTel()%></td>
                                     <td class="telefono"><%= e.getEmail()%></td>                                    
-                                    <td class="ciudad"><%= e.getRolid()%></td>
+                                    <td class="ciudad"><%= e.getRolid().getNombre()%></td>
                                     <td class="email"><%= e.getDocumento()%></td>
                                     <td class="documento"><%= e.getFechaInicio()%></td>                                    
                                     <td><a href="editar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>

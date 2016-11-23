@@ -100,6 +100,11 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="listar_cliente" type="button" class="btn btn-danger" >Atras</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

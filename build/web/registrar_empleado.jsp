@@ -41,6 +41,7 @@
                 rs.close();
                 cnn.close();
             } catch (Exception e) {
+                System.out.println("error");
                 e.printStackTrace();
             }
         %>
@@ -65,7 +66,6 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label>Cargo</label>
-                    <label>Genero</label>
                     <select class="form-control" id="select" name="rol">
                         <option value="0">Selecionar</option> 
                         <% for (Roles r : listarroles) {%>                    

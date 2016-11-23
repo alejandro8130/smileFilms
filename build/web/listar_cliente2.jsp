@@ -49,12 +49,15 @@
                                     <th>Dirección</th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>                            
-                                <% for (Clientes c : lista) {%>
-                                <% int id = c.getId();%>
-                                <tr id="<%=id%>">
+                                <%                                    
+                                    int id = 0;
+                                    for (Clientes c : lista) {
+                                        id = c.getId();%>
+                                <tr>
                                     <td><%= c.getId()%></td>
                                     <td class="nombre"><%= c.getNombre()%></td>
                                     <td class="apellido"><%= c.getApellido()%></td>
@@ -65,13 +68,30 @@
                                     <td class="ciudad"><%= c.getCiudad()%></td>
                                     <td class="direccion"><%= c.getDireccion()%></td>
                                     <td><a href="mostrar_cliente.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
-                                    <td><a href="editar_cliente.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
-                                    <td><a href="eliminar_cliente?id=<%=id%>" type="button" class="btn btn-danger">Eliminar</a></td>
+                                    <td><a href="editar_cliente.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>                                    
+                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
                                 </tr>
                                 <% }%>
 
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Cliente</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Estas seguro?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="eliminar_cliente?id=<%=id%>" type="button" class="btn btn-danger">Aceptar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,6 @@
 <%@page import="controller.conectadb"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    ArrayList<Clientes> listarclientes = new ArrayList<>();
     String ids = "";
     String nombre = "";
     String apellido = "";
