@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ficha1020611
  */
-@WebServlet(name = "eliminar_empleado", urlPatterns = {"/eliminar_empleado"})
-public class eliminar_empleado extends HttpServlet {
+@WebServlet(name = "eliminar_pelicula", urlPatterns = {"/eliminar_pelicula"})
+public class eliminar_pelicula extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class eliminar_empleado extends HttpServlet {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             String ids = request.getParameter("id");
-            PreparedStatement query = cnn.prepareStatement("DELETE FROM Empleados WHERE id="+ids+";");
+            PreparedStatement query = cnn.prepareStatement("DELETE FROM Peliculas WHERE id="+ids+";");
             query.executeUpdate();
 
-            request.getRequestDispatcher("listar_empleados").forward(request, response);
+            request.getRequestDispatcher("listar_peliculas").forward(request, response);
             System.out.println(query);
             cnn.close();
         } catch (SQLException e) {

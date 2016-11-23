@@ -3,13 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ficha1020611
  */
-@WebServlet(name = "eliminar_empleado", urlPatterns = {"/eliminar_empleado"})
-public class eliminar_empleado extends HttpServlet {
+@WebServlet(urlPatterns = {"/editar_pelicula"})
+public class editar_pelicula extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,18 +31,17 @@ public class eliminar_empleado extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try {
-            conectadb con = new conectadb();
-            Connection cnn = con.conectar();
-            String ids = request.getParameter("id");
-            PreparedStatement query = cnn.prepareStatement("DELETE FROM Empleados WHERE id="+ids+";");
-            query.executeUpdate();
-
-            request.getRequestDispatcher("listar_empleados").forward(request, response);
-            System.out.println(query);
-            cnn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet editar_pelicula</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet editar_pelicula at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
