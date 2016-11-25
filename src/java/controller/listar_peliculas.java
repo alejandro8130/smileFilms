@@ -45,7 +45,7 @@ public class listar_peliculas extends HttpServlet {
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Peliculas;";
+            String query = "SELECT Peliculas.id,Peliculas.nombre,Peliculas.poster,Generos.nombre,Peliculas.duracion,Peliculas.estado,Peliculas.ejemplar,Peliculas.descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.genero_id=Generos.id;";
             ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
             System.out.println(query);
             ResultSet rs = stm.executeQuery(query);

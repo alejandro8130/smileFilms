@@ -175,3 +175,5 @@ Insert into Barcodes (nombre,descripcion,barcode) values ('Mamá','Drama','6');
 SELECT nombre,poster,Generos.nombre,duracion,estado,ejemplar,descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.Generos_id=Generos.id
 
 DELETE FROM somelog WHERE id=?;
+
+SELECT Peliculas.nombre,Peliculas.poster,Generos.nombre,Peliculas.duracion,Peliculas.estado,Peliculas.ejemplar,Peliculas.descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.genero_id=Generos.id;

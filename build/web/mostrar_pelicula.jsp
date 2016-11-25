@@ -42,7 +42,7 @@
                 Connection cnn = con.conectar();
                 Statement stm = cnn.createStatement();
                 ids = request.getParameter("id");
-                String query = "SELECT * FROM Peliculas WHERE id=" + ids + ";";
+                String query = "SELECT Peliculas.id,Peliculas.nombre,Peliculas.poster,Generos.nombre,Peliculas.duracion,Peliculas.estado,Peliculas.ejemplar,Peliculas.descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.genero_id=Generos.id WHERE Peliculas.id=" + ids + ";";
                 System.out.println(query);
                 ResultSet rs = stm.executeQuery(query);
                 while (rs.next()) {
@@ -85,7 +85,7 @@
                             </tr>
                             <tr>
                                 <td><strong>Genero</strong></td>
-                                <td><%= generoid%></td>
+                                <td><%= generoid.getNombre()%></td>
                             </tr>
                             <tr>
                                 <td><strong>Duración</strong></td>
