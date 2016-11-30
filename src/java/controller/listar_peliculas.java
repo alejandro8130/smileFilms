@@ -41,29 +41,30 @@ public class listar_peliculas extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            HttpSession session = request.getSession(false);       
+            HttpSession session = request.getSession(false);
             conectadb con = new conectadb();
             Connection cnn = con.conectar();
             Statement stm = cnn.createStatement();
-            String query = "SELECT * FROM Peliculas;";
+            String query = "SELECT Peliculas.id,Peliculas.nombre,Peliculas.poster,Generos.nombre,Peliculas.duracion,Peliculas.estado,Peliculas.ejemplar,Peliculas.descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.genero_id=Generos.id;";
             ArrayList<Peliculas> listarpeliculas = new ArrayList<>();
             System.out.println(query);
             ResultSet rs = stm.executeQuery(query);
             while (rs.next()) {
                 Peliculas pelicula = new Peliculas();
+                Generos generoid = new Generos();
+                generoid.setNombre(rs.getString(4));
                 int id = Integer.parseInt(rs.getString(1));
                 String nombre = rs.getString(2);
                 String poster = rs.getString(3);
-                //Generos generoId = (Generos) rs.getObject(4);
                 int duracion = Integer.parseInt(rs.getString(5));
                 String estado = rs.getString(6);
                 int ejemplar = Integer.parseInt(rs.getString(7));
                 String descripcion = rs.getString(8);
-
+                                
                 pelicula.setId(id);
                 pelicula.setNombre(nombre);
                 pelicula.setPoster(poster);
-                //pelicula.setGeneroId(generoId);
+                pelicula.setGeneroId(generoid);
                 pelicula.setDuracion(duracion);
                 pelicula.setEstado(estado);
                 pelicula.setEjemplar(ejemplar);
@@ -79,7 +80,7 @@ public class listar_peliculas extends HttpServlet {
             cnn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            
+
         }
     }
 

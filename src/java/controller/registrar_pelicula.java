@@ -51,6 +51,7 @@ public class registrar_pelicula extends HttpServlet {
 
 
             System.out.println(query);
+            request.getRequestDispatcher("listar_peliculas").forward(request, response);
             cnn.close();
         } catch (SQLException e) {
             e.printStackTrace();

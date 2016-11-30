@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -31,14 +32,14 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "Peliculas")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Peliculas.findAll", query = "SELECT p FROM Peliculas p")
-    , @NamedQuery(name = "Peliculas.findById", query = "SELECT p FROM Peliculas p WHERE p.id = :id")
-    , @NamedQuery(name = "Peliculas.findByNombre", query = "SELECT p FROM Peliculas p WHERE p.nombre = :nombre")
-    , @NamedQuery(name = "Peliculas.findByPoster", query = "SELECT p FROM Peliculas p WHERE p.poster = :poster")
-    , @NamedQuery(name = "Peliculas.findByDuracion", query = "SELECT p FROM Peliculas p WHERE p.duracion = :duracion")
-    , @NamedQuery(name = "Peliculas.findByEstado", query = "SELECT p FROM Peliculas p WHERE p.estado = :estado")
-    , @NamedQuery(name = "Peliculas.findByEjemplar", query = "SELECT p FROM Peliculas p WHERE p.ejemplar = :ejemplar")
-    , @NamedQuery(name = "Peliculas.findByDescripcion", query = "SELECT p FROM Peliculas p WHERE p.descripcion = :descripcion")})
+    @NamedQuery(name = "Peliculas.findAll", query = "SELECT p FROM Peliculas p"),
+    @NamedQuery(name = "Peliculas.findById", query = "SELECT p FROM Peliculas p WHERE p.id = :id"),
+    @NamedQuery(name = "Peliculas.findByNombre", query = "SELECT p FROM Peliculas p WHERE p.nombre = :nombre"),
+    @NamedQuery(name = "Peliculas.findByPoster", query = "SELECT p FROM Peliculas p WHERE p.poster = :poster"),
+    @NamedQuery(name = "Peliculas.findByDuracion", query = "SELECT p FROM Peliculas p WHERE p.duracion = :duracion"),
+    @NamedQuery(name = "Peliculas.findByEstado", query = "SELECT p FROM Peliculas p WHERE p.estado = :estado"),
+    @NamedQuery(name = "Peliculas.findByEjemplar", query = "SELECT p FROM Peliculas p WHERE p.ejemplar = :ejemplar"),
+    @NamedQuery(name = "Peliculas.findByDescripcion", query = "SELECT p FROM Peliculas p WHERE p.descripcion = :descripcion")})
 public class Peliculas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -185,5 +186,9 @@ public class Peliculas implements Serializable {
     public String toString() {
         return "model.Peliculas[ id=" + id + " ]";
     }
-    
+
+    public void setGeneroId(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -136,10 +136,20 @@ Insert into Roles (nombre) values ('Gerente');
 Insert into Roles (nombre) values ('Empleado');
 Insert into Roles (nombre) values ('Cliente');
 
-Insert into Users (email,Rol_id,contrasena) values ('alejo@gmail.com',1,'123456');
 
-Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Alejandro','González','1990-08-13','33333330','a@gmail.com',1,'2222222222','Itagui','cr 80 # 80 - 80');
-Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Raul','Betancur','1987-09-17','4444444','r@gmail.com',1,'111111111','Medellin','cr 80 # 80 - 80');
+
+
+Insert into Users (email,Rol_id,contrasena) values ('a@gmail.com',1,'123456');
+Select id from User where email=a@gmail.com;
+Insert into Empleados (nombre,apellido,tel,email,Rol_id,User_id,documento,fecha_inicio) values ('Alejandro','González','33333330','a@gmail.com',1,1,'2222222222','1990-08-13');
+
+Insert into Users (email,Rol_id,contrasena) values ('r@gmail.com',1,'123456');
+Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,User_id,documento,ciudad,direccion) values ('Raul','Betancur','1987-09-17','4444444','r@gmail.com',1,2,'111111111','Medellin','cr 80 # 80 - 80');
+
+
+
+
+
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Marlon','Urriago','1992-07-02','5555555','m@gmail.com',1,'7777777777','Itagui','cr 81 # 81 - 81');
 Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,documento,ciudad,direccion) values ('Wilder','Alvarez','1996-01-30','6666666','w@gmail.com',1,'8888888888','Itagui','cr 81 # 81 - 81');
 
@@ -148,8 +158,8 @@ Insert into Generos (nombre) values ('Infantil');
 Insert into Generos (nombre) values ('Drama');
 Insert into Generos (nombre) values ('Accion');
 
-Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('El triunfo del espÃ­ritu (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/race.jpg','3','120','Nuevo','5','El objetivo de Jesse Owens de llegar a ser el mejor corredor de pista y atleta de campo de la historia lo impulsa hasta el escenario de los Juegos OlÃ­mpicos de 1936, donde se enfrenta a la visión de la supremacía aria de Adolf Hitler.');
-
+Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('El triunfo del espíritu (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/race.jpg','3','120','Nuevo','5','El objetivo de Jesse Owens de llegar a ser el mejor corredor de pista y atleta de campo de la historia lo impulsa hasta el escenario de los Juegos Olímpicos de 1936, donde se enfrenta a la visión de la supremacía aria de Adolf Hitler.');
+Insert into Peliculas (nombre,poster,genero_id,duracion,estado,ejemplar,descripcion) values ('Buscando a Dory (2016)','http://www.cinecalidad.com/wp-content/uploads/2016/10/buscando-a-dory.jpg','2','120','Nuevo','5','La amigable pero olvidadiza pez cirujano regal comienza una bÃºsqueda de sus padres perdidos hace mucho tiempo, y todos aprenden algunas cosas sobre el verdadero significado de la familia en el camino.');
 
 CREATE TABLE Barcodes (
   id INTEGER AUTO_INCREMENT NOT NULL,
@@ -165,3 +175,123 @@ Insert into Barcodes (nombre,descripcion,barcode) values ('Jackass','Comedia','3
 Insert into Barcodes (nombre,descripcion,barcode) values ('El Hobbit','Aventura','4');
 Insert into Barcodes (nombre,descripcion,barcode) values ('Los juegos del hambre','Acción','5');
 Insert into Barcodes (nombre,descripcion,barcode) values ('Mamá','Drama','6');
+
+"Select Clientes.nombre,Clientes.apellido, Peliculas.nombre, "
+                   + "Prestamos.fecha_devolucion, Prestamos.pago, Empleados.nombre,Empleados.apellido from Prestamos "
+                   + "inner join Clientes on Prestamos.Cliente_id=Clientes.id "
+                   + "inner join Peliculas on Prestamos.Pelicula_id=Peliculas.id "
+                   + "inner join Empleados on Prestamos.Empleado_id=Empleados.id;";
+
+
+SELECT Peliculas.nombre,Peliculas.poster,Generos.nombre,Peliculas.duracion,Peliculas.estado,Peliculas.ejemplar,Peliculas.descripcion FROM Peliculas INNER JOIN Generos ON Peliculas.genero_id=Generos.id;
+
+
+
+CREATE TABLE 'bonds' (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(255) DEFAULT NULL,
+ PRIMARY KEY('id')
+ );
+INSERT INTO bonds(name) SELECT DISTINCT bond FROM customer WHERE bond IS NOT NULL;
+
+
+
+
+
+
+
+CREATE TABLE Roles (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Users (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  Rol_id INTEGER NOT NULL,
+  contrasena VARCHAR(30) NOT NULL,  
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Clientes (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  tel VARCHAR(11) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  Rol_id INTEGER NOT NULL,
+  documento VARCHAR(30) NOT NULL,
+  ciudad VARCHAR(50) NOT NULL,
+  direccion VARCHAR(30) NOT NULL,
+  foto BLOB NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE Users ADD FOREIGN KEY (Rol_id) REFERENCES Roles (id);
+ALTER TABLE Clientes ADD FOREIGN KEY (Rol_id) REFERENCES Roles (id);
+ALTER TABLE Empleados ADD FOREIGN KEY (Rol_id) REFERENCES Roles (id);
+
+Insert into Users (email,Rol_id,contrasena) values ('a@gmail.com',1,'123456');
+Select id from User where email='a@gmail.com';
+Insert into Empleados (nombre,apellido,tel,email,Rol_id,User_id,documento,fecha_inicio) values ('Alejandro','González','33333330','a@gmail.com',1,1,'2222222222','1990-08-13');
+
+Insert into Users (email,Rol_id,contrasena) values ('r@gmail.com',1,'123456');
+Select id from User where email='r@gmail.com';
+Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,User_id,documento,ciudad,direccion) values ('Raul','Betancur','1987-09-17','4444444','r@gmail.com',1,2,'111111111','Medellin','cr 80 # 80 - 80');
+
+CREATE TABLE Roles (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Users (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  Rol_id INTEGER NOT NULL,
+  contrasena VARCHAR(30) NOT NULL,  
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Clientes (
+  id INTEGER AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(30) NOT NULL,
+  apellido VARCHAR(30) NOT NULL,
+  fecha_nacimiento DATE NOT NULL,
+  tel VARCHAR(11) NOT NULL,
+  email VARCHAR(30) NOT NULL,
+  Rol_id INTEGER NOT NULL,
+  User_id INTEGER NOT NULL,
+  documento VARCHAR(30) NOT NULL,
+  ciudad VARCHAR(50) NOT NULL,
+  direccion VARCHAR(30) NOT NULL,
+  foto BLOB NULL DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE Users ADD FOREIGN KEY (Rol_id) REFERENCES Roles (id);
+ALTER TABLE Clientes ADD FOREIGN KEY (Rol_id) REFERENCES Roles (id);
+ALTER TABLE Clientes ADD FOREIGN KEY (User_id) REFERENCES Users (i
+
+Insert into Roles (nombre) values ('Cliente');
+Insert into Users (email,Rol_id,contrasena) values ('r@gmail.com',1,'123456');
+Select * from Users where email='r@gmail.com';
+Insert into Clientes (nombre,apellido,fecha_nacimiento,tel,email,Rol_id,User_id,documento,ciudad,direccion) values ('Raul','Betancur','1987-09-17','4444444','r@gmail.com',1,2,'111111111','Medellin','cr 80 # 80 - 80');
+
+Select Clientes.nombre,Clientes.apellido,Clientes.fecha_nacimiento,Clientes.tel,Clientes.email,Roles.nombre,Users.email,Clientes.documento,Clientes.ciudad,Clientes.direccion FROM Clientes INNER JOIN Roles ON Clientes.rol_id=Roles.id INNER JOIN Users ON Clientes.user_id=Users.id;
+
+INSERT INTO Prestamos (Cliente.id,Pelicula.id,fecha_devolucion,pago,Empleado.id) VALES (1,1,'2016-12-17',10000,1)
+
+Select Clientes.nombre,Pelicula.nombre,Prestamos.fecha_devolucion,Prestamos.pago,Empleado.nombre FROM Prestamos INNER JOIN Clientes ON Prestamos.Cliente_id=Clientes.id INNER JOIN Peliculas ON Prestamos.Pelicula_id=Peliculas.id INNER jOIN Empleado ON Prestamos.Empleado_id=Empleados.id;
+
+CREATE TABLE Prestamos (
+  id INTEGER  AUTO_INCREMENT NOT NULL,
+  Cliente_id INTEGER NOT NULL,
+  Pelicula_id INTEGER NOT NULL,
+  fecha_devolucion DATE NOT NULL,
+  pago INT NOT NULL,
+  Empleado_id INTEGER NOT NULL,
+  PRIMARY KEY (id)
+);
