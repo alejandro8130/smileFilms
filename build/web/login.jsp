@@ -4,7 +4,7 @@
     Author     : ficha1020611
 --%>
 
-<form method="Get" action="Login" class="form-inline form-login" id="loginForm">
+<form method="Get" action="Login" class="form-login" id="loginForm">
     <div class="form-group">
         <label>User</label>
         <input type="text" name="Nombre" class="form-control">

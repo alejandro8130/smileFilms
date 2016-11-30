@@ -1,19 +1,19 @@
 <%-- 
-    Document   : listar_peliculas.jsp
-    Created on : 03-nov-2016, 21:54:38
-    Author     : alejo
+    Document   : listar_prestamos
+    Created on : 30/11/2016, 07:35:44 AM
+    Author     : ficha1020611
 --%>
 
 <%@page import="model.Generos"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="model.Peliculas"%>
+<%@page import="model.Prestamos"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 
-    ArrayList<Peliculas> lista = (ArrayList<Peliculas>) session.getAttribute("lista");
+    ArrayList<Prestamos> lista = (ArrayList<Prestamos>) session.getAttribute("lista");
 
 %>
 <!DOCTYPE html>
@@ -36,39 +36,32 @@
         <jsp:include page="navbar.jsp" flush="true"/>
         <div class="container well" align="center">
             <div class="row">
-                <h1>Listar Peliculas</h1>
+                <h1>Listar Prestamos</h1>
                 <table id="peliculas" class="table">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Poster</th>
-                            <th>Genero</th>
-                            <th>Duracion</th>
-                            <th>Estado</th>
-                            <th>Ejemplar</th>                     
-                            <th>Descripcion</th>
-                            <th></th>
+                            <th>Cliente</th>
+                            <th>Pelicula</th>
+                            <th>Fecha Devolución</th>
+                            <th>Pago</th>
+                            <th>Empleado</th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>                            
                         <%                                    int id = 0;
-                                for (Peliculas c : lista) {
-                                    id = c.getId();%>
+                            for (Prestamos c : lista) {
+                                id = c.getId();%>
                         <tr id="<%=id%>">
                             <td><%= c.getId()%></td>
-                            <td class="nombre"><%= c.getNombre()%></td>
-                            <td class="poster"><img src="<%= c.getPoster()%>" alt="imagen" class="img-responsive"></td>
-                            <td class="genero"><%= c.getGeneroId().getNombre()%></td>
-                            <td class="duracion"><%= c.getDuracion()%></td>
-                            <td class="estado"><%= c.getEstado()%></td>
-                            <td class="ejemplar"><%= c.getEjemplar()%></td>
-                            <td class="descripcion"><%= c.getDescripcion()%></td>
-                            <td><a href="mostrar_pelicula.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
-                            <td><a href="editar_pelicula.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
-                            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                            <td class="nombre"><%= c.getClienteid().getNombre()%></td>
+                            <td class="poster"><%= c.getPeliculaid().getNombre()%></td>
+                            <td class="duracion"><%= c.getFechaDevolucion()%></td>
+                            <td class="estado"><%= c.getPago()%></td>
+                            <td class="ejemplar"><%= c.getEmpleadoid().getNombre()%></td>
+                            <td><a href="mostrar_prestamo.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
                         </tr>
                         <% }%>
                     </tbody>
@@ -94,4 +87,3 @@
         </div>
     </body>
 </html>
-
