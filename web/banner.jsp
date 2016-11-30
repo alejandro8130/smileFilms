@@ -8,28 +8,20 @@
     <div class="col-md-1">
         <img src="imagenes/video-camera.png" alt="imagen" class="img-responsive img-banner">
     </div>
-    <div class="col-md-5">
+    <div class="col-md-7">
         <h1>Smile Films</h1>
     </div>
-    <div class="col-md-6 login">
-        <% HttpSession rs = request.getSession();
-            String rol;
-            if (rs.getAttribute("rol") == null) {
-                rol = "Vacio";
-            } else {
-                rol = (String) rs.getAttribute("rol");
-            }
-        %>  
-        <% if (rol.equals("1") || rol.equals("2") || rol.equals("3")) { %>
-        <ul class="breadcrumb">
-            <li class="active"><%= rol %></li>
-            <li><a href="cerrar"><span class="glyphicon glyphicon-user"></span> Salir</a></li>
-        </ul>
-        
-        <% } else { %>
-        <jsp:include page="login.jsp" flush="true"/>
-        <% }%>
+    <div class="col-md-4 login">
+        <a class="btn btn-social-icon btn-twitter">
+            <span class="fa fa-twitter"></span>
+        </a>
+        <a class="btn btn-social-icon btn-facebook">
+            <span class="fa fa-facebook"></span>
+        </a>
+        <a class="btn btn-social-icon btn-instagram">
+            <span class="fa fa-instagram"></span>
+        </a>
     </div>    
 </div>
-  
+
 

@@ -50,6 +50,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Prestamos<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="resgistrar_prestamo.jsp">Registrar</a></li>
+                        <li><a href="listar_prestamos?pag=0">Listar</a></li>
                     </ul>
                 </li>       
                 <li class="dropdown">
@@ -83,12 +84,29 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
 
-                <% if (rol.equals("Gerente") || rol.equals("Empleado") || rol.equals("Cliente")) {%>
+                <% if (rol.equals("1") || rol.equals("2") || rol.equals("3")) {%>
                 <li><a href="cerrar"><span class="glyphicon glyphicon-user"></span>Cerrar sesion</a></li>
                     <% } else { %>
                 <li><a href="registrar_cliente.jsp">Registrarse</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Ingresar</a></li>
                     <% }%>
             </ul> 
         </div>
     </nav>       
 </div> 
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ingresar</h4>
+            </div>
+            <div class="modal-body">
+                <jsp:include page="login.jsp" flush="true"/>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            

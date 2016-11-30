@@ -32,51 +32,47 @@
 
         <jsp:include page="banner.jsp" flush="true"/>
         <jsp:include page="navbar.jsp" flush="true"/>
-        <div class="container well">
-            <div class="container" align="center">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1>Listar Empleado</h1>
-                        <table id="empleados" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nombre</th>
-                                    <th>Apellido</th>
-                                    <th>Telefono</th>                                    
-                                    <th>Email</th>   
-                                    <th>Cargo</th>
-                                    <th>Documento</th>
-                                    <th>Fecha de Inicio</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>                            
-                                <% 
-                                    int id = 0;
-                                    for (Empleados e : lista) {
-                                    id = e.getId();%>
-                                <tr id="<%=id%>">
-                                    <td><%= e.getId()%></td>
-                                    <td class="nombre"><%= e.getNombre()%></td>
-                                    <td class="apellido"><%= e.getApellido()%></td>
-                                    <td class="fecha"><%= e.getTel()%></td>
-                                    <td class="telefono"><%= e.getEmail()%></td>                                    
-                                    <td class="ciudad"><%= e.getRolid().getNombre()%></td>
-                                    <td class="email"><%= e.getDocumento()%></td>
-                                    <td class="documento"><%= e.getFechaInicio()%></td>        
-                                    <td><a href="mostrar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
-                                    <td><a href="editar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
-                                    <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
-                                </tr>
-                                <% }%>
+        <div class="container well" align="center">
+            <div class="row">
+                <h1>Listar Empleado</h1>
+                <table id="empleados" class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>                                    
+                            <th>Email</th>   
+                            <th>Cargo</th>
+                            <th>Documento</th>
+                            <th>Fecha de Inicio</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>                            
+                        <%                            
+                            int id = 0;
+                            for (Empleados e : lista) {
+                                id = e.getId();%>
+                        <tr id="<%=id%>">
+                            <td><%= e.getId()%></td>
+                            <td class="nombre"><%= e.getNombre()%></td>
+                            <td class="apellido"><%= e.getApellido()%></td>
+                            <td class="fecha"><%= e.getTel()%></td>
+                            <td class="telefono"><%= e.getEmail()%></td>                                    
+                            <td class="ciudad"><%= e.getRolid().getNombre()%></td>
+                            <td class="email"><%= e.getDocumento()%></td>
+                            <td class="documento"><%= e.getFechaInicio()%></td>        
+                            <td><a href="mostrar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-success" >Mostrar</a></td>
+                            <td><a href="editar_empleado.jsp?id=<%=id%>" type="button" class="btn btn-warning" >Editar</a></td>
+                            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button></td>
+                        </tr>
+                        <% }%>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog modal-sm">
